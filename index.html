@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./index.js"></script>
+    <pre>
+    <b>let studentRecords = [ {name: 'John', id: 123, marks : 98 },
+        {name: 'Baba', id: 101, marks : 23 },
+        {name: 'yaga', id: 200, marks : 45 },
+        {name: 'Wick', id: 115, marks : 75 } ] </b></pre>
+
+<b>1."We are interested in retrieving only the students' names; all the names
+     should be in caps.
+<br>
+['JOHN', 'BABA', 'YAGA', 'WICK']" </b>
+
+<pre>
+    let studentRecords = [ {name: 'John', id: 123, marks : 98 },
+    {name: 'Baba', id: 101, marks : 23 },
+    {name: 'yaga', id: 200, marks : 45 },
+    {name: 'Wick', id: 115, marks : 75 } ]
+
+    const a = studentRecords.map((x)=> x.name.toUpperCase());
+    console.log(a);
+
+    output:- ['JOHN', 'BABA', 'YAGA', 'WICK']
+</pre>
+
+<b>2."Suppose we have the same dataset as above but this time we want to 
+    get the details of students who scored more than 50 marks.
+<br>
+    [{name: 'John', id: 123, marks: 98 },{name: 'Wick', id: 115, marks: 75 }]" </b>
+
+    <pre>
+        const a = studentRecords.filter((x)=> x.marks > 50 );
+        console.log(a);
+
+    output:- [{name: 'John', id: 123, marks: 98 }
+              {name: 'Wick', id: 115, marks: 75 }]
+    </pre>
+
+<b>3.Retrieve the details of students who scored more than 50 marks and 
+        have IDs greater than 120. </b>
+
+        <pre>
+            
+            const a = studentRecords.filter((x)=> x.marks > 50 && x.id > 120);
+            console.log(a);
+
+            output:- {name: 'John', id: 123, marks: 98}
+        </pre>
+
+<b>4. Consider the same scenario we have discussed above, but this time we would like
+             to know the sum total of the marks of the students.</b>
+
+             <pre>
+                
+                const a = studentRecords.filter((x)=> x.marks > 50 &&x.id > 120).reduce((sum,p)=> sum += p.marks,0);
+                console.log(a);
+
+                output:- 98
+             </pre>
+
+<b>5.This time we want to get only the names of the students who scored more than
+     50 marks from the same dataset used above. </b>
+    
+     <pre>
+        const a = studentRecords.filter((x)=> x.marks > 50).map((y)=> y.name);
+        console.log(a);
+
+        output:- ['John', 'Wick']
+     </pre>
+
+<b>6. This time we are required to print the sum of marks of 
+      the students with id > 120.</b>
+
+      <pre>
+        const a = studentRecords.filter((x)=> x.id > 120).reduce((sum,p)=> sum += p.marks,0);
+        console.log(a);
+
+        output:- 143
+      </pre>
+
+<b>7.This time we are required to print the total marks of the students with marks
+     greater than 50 after a grace of 15 marks has been added to those students who
+      scored less than 50. </b>
+
+      <pre>
+        
+const b = studentRecords.filter((y)=> y.marks > 50).reduce((sum,p)=> sum += p.marks,0);
+
+const a = studentRecords.filter((x)=> x.marks < 50).reduce((sum1,q)=> sum1 += 15 + q.marks,0);
+console.log(a + b);
+
+output:- 271
+      </pre>
+
+<b>8.Create 6 objects , each object will have name, class, roll no as properties.
+     Store these objects in an array of objects. </b>
+
+     <pre>
+        let x = [];
+const a = {name:"varun", class:1, rollno:11};
+const b = {name:"rohith", class:2, rollno:12};
+const c = {name:"naveen", class:3, rollno:13};
+const d = {name:"shaila", class:4, rollno:14};
+const e = {name:"geetha", class:5, rollno:15};
+const f = {name:"prakash", class:6, rollno:16};
+
+x.push(a,b,c,d,e,f);
+console.log(x);
+
+output:- [{name:"varun", class:1, rollno:11}
+          {name:"rohith", class:2, rollno:12}
+          {name:"naveen", class:3, rollno:13}
+          {name:"shaila", class:4, rollno:14}
+          {name:"geetha", class:5, rollno:15}
+          {name:"prakash", class:6, rollno:16}]
+     </pre>
+</body>
+</html>
